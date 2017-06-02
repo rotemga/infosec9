@@ -1,0 +1,16 @@
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
+sudo python q1a.py 10.0.2.6 22 1
