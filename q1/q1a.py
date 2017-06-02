@@ -2,7 +2,6 @@ from scapy.all import *
 
 
 def stealth_syn_scan(ip, ports, timeout):
-    print ports
     result = []
 
     SYN = 0x02
