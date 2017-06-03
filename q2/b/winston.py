@@ -3,20 +3,17 @@ import binascii
 
 
 def text_to_bits(text, encoding='utf-8', errors='surrogatepass'):
-    bits = bin(int(binascii.hexlify(text.encode(encoding, errors)), 16))[2:]
-    return bits.zfill(8 * ((len(bits) + 7) // 8))
+	return ''.join([bin(ord(c))[2:].rjust(8,'0') for c in text])
 
 def send_message(ip, port):
 	msg = 'I love you'
 	binary_msg = text_to_bits(msg)
-	print int(binary_msg, 2)
 
 	ack = len(binary_msg) / 3
 	bits = ""
 	seq = 0
 
 	if (ack % 3) > 0:
-		print (3 - len(binary_msg) % 3)
 		binary_msg += '0'*(3 - len(binary_msg) % 3)
 		ack += 1
 

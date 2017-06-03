@@ -5,13 +5,10 @@ msg = ""
 need_to_stop = False
 
 def text_from_bits(bits, encoding='utf-8', errors='surrogatepass'):
-	n = int(bits, 2)
-	return int2bytes(n).decode(encoding)
+	bits = ''.join(bits)
+	return ''.join(chr(int(bits[i*8:i*8+8],2)) for i in range(len(bits)//8))
 
-def int2bytes(i):
-    hex_string = '%x' % i
-    n = len(hex_string)
-    return binascii.unhexlify(hex_string.zfill(n + (n & 1)))
+
 
 def receive_message(port):
 
@@ -29,16 +26,12 @@ def on_packet(packet):
 	seq = tcp.seq
 	bits = tcp.reserved
 
-	print bits
+
 	
 
 	msg +=  "{0:03b}".format(bits)
-	print seq
-	print ack
-	if (seq  == ack-1):
-		msg = ''.join(msg)
-		print msg
 
+	if (seq  == ack-1):
 		msg = text_from_bits(msg)
 		need_to_stop = True
 		return
