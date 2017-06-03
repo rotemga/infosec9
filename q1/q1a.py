@@ -24,7 +24,6 @@ def stealth_syn_scan(ip, ports, timeout):
             else:
                 result.append('filtered')
 
-
     return result
 
 

@@ -1,0 +1,5 @@
+I checked if the lenght of the message == 0 (mod 3), if not I added '0' to the end of the string.
+I converted the string to binary string, and created a TCP packet for each triple of bits, I puted the bits in the 'resereved' bits.
+I send it from src port 65000.
+In julia.py I sniff for packets until I get the all packets (In winston.py I send the packets with ack=number_of_total_packets)
+I converted the binary string to normal string.
