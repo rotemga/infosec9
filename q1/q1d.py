@@ -17,7 +17,6 @@ def on_packet(packet):
 		send (SYN_ACK_PACKET)
 
 
-
 def main():
     sniff(prn=on_packet)
 

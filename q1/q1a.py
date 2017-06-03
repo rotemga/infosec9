@@ -10,19 +10,18 @@ def stealth_syn_scan(ip, ports, timeout):
     #go over all ports, send syn to each port
     for i in range(0, len(ports)):
         #create syn packet
-        SYN_PACKET = IP(dst=ip) / TCP(dport=ports[i], flags="S", seq=1000) 
+        SYN_PACKET = IP(dst=ip) / TCP(dport=ports[i], flags="S") 
         #send and recive one packet
         PACKET_RECIVED=sr1(SYN_PACKET, timeout=timeout)
-
         #check the flags
         if (PACKET_RECIVED):
             F = PACKET_RECIVED['TCP'].flags
             if (F & SYN) and (F & ACK):
                 result.append('open')
-            if (F & RST):
+            elif (F & RST):
                 result.append('closed')
-            else:
-                result.append('filtered')
+        else:
+            result.append('filtered')
 
     return result
 
