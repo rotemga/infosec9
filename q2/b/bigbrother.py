@@ -14,9 +14,8 @@ def spy(packet):
 	entropy = -sum(p * math.log(p)/math.log(2.0) for p in distribution)
 
 	if ('love' in payload) or (entropy > 3.0):
-		print entropy
 		unpersons.add (sender_ip)
-		
+
 
 	pass
 
