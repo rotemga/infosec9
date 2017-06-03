@@ -1,0 +1,1 @@
+In addition to the check if the word 'love' is in payload to put the ip sender in unpersons set, I checked if entropy > 3.0 and if so, I added the ip sender to unpersons set.
