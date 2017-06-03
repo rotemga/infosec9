@@ -1,0 +1,2 @@
+Check if the packet has TCP layer, if not it's don't have payload and the packet is not interesting.
+Check if the payload contain the word 'love', if so add the ip sender to the unpersons set.

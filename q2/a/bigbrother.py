@@ -5,7 +5,13 @@ unpersons = set()
 
 
 def spy(packet):
-    pass # Reimplement me! (a1)
+	if not packet.haslayer(TCP):
+		return
+
+	payload = str(packet[TCP].payload)
+	if 'love' in payload:
+		unpersons.add (packet[IP].src)
+	pass
 
 
 def main():

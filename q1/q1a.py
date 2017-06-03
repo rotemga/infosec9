@@ -21,8 +21,8 @@ def stealth_syn_scan(ip, ports, timeout):
                 result.append('open')
             if (F & RST):
                 result.append('closed')
-        else:
-            result.append('filtered')
+            else:
+                result.append('filtered')
 
 
     return result

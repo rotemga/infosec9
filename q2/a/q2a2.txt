@@ -1,0 +1,2 @@
+I used in both julia.py and winston.py a class AESCipher that get a key in the c'tor and then encrypt and decrypt messages using PyCrypto.
+I chose a key and used the same key in julia.py and winston.py.
