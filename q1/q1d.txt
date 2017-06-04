@@ -1,0 +1,2 @@
+I sniff the packets and for each packet that is syn and ip.dst isn't 10.0.2.15 (it's the local host and we don't want infinite loop),
+I send syn ack packet backward (swap src and dst of IP and TCP) and in q1a.py it's think the port is open.

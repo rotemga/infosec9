@@ -1,0 +1,5 @@
+I create a syn packet to each port, with ip destination.
+Then I send this packet and recive 1 packet (with sr1 function).
+If the flags of the recived packets are "SA", the port is open,
+else if the flags are RST, the port is closed,
+else it's filter.

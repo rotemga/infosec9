@@ -1,0 +1,3 @@
+I created dict that save for each ip address, list of times.
+In is_blocked I return True if the lenght of the list of the ip >= 15 
+on_packet first save the time, if is_blocked return True and it's a syn packet, it's create a rule in the iptable.

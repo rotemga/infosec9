@@ -13,6 +13,7 @@ def stealth_syn_scan(ip, ports, timeout):
         SYN_PACKET = IP(dst=ip) / TCP(dport=ports[i], flags="S") 
         #send and recive one packet
         PACKET_RECIVED=sr1(SYN_PACKET, timeout=timeout)
+
         #check the flags
         if (PACKET_RECIVED):
             F = PACKET_RECIVED['TCP'].flags

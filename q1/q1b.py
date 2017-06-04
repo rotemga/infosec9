@@ -10,8 +10,8 @@ timer = 0
 
 def on_packet(packet):
 
-	is_syn = 0
 	now = datetime.datetime.now()
+	is_syn = 0
 
 	if (not (packet.haslayer (TCP))):
 		return
@@ -30,7 +30,6 @@ def on_packet(packet):
 
 	if (is_blocked(ip) and is_syn == 1):
 		os.system ("iptables -A INPUT -s " + ip +" -j DROP")
-		os.system ("iptables -A OUTPUT -d " + ip + " -j DROP")
 
 
 	#add to dict
@@ -42,7 +41,7 @@ def on_packet(packet):
 def is_blocked(ip):
 	if not (ip in count_syn_dict):
 		return False
-	print len (count_syn_dict[ip])
+	#print len (count_syn_dict[ip])
 	return (len (count_syn_dict[ip]) >= 15)
 
 
@@ -61,13 +60,17 @@ def add_to_dict(ip, now):
 def clean_time (ip, now):
 	if ip in count_syn_dict:
 		timeList = count_syn_dict[ip]
-		#print timeList
-		for i in range (0, len(timeList)-1):
+		list_to_remove = []
+		for i in range (0, len(timeList)):
 			delta = now - timeList[i]
 			time_diff = divmod(delta.days * 86400 + delta.seconds, 60)
-			if (time_diff[1] > 60):
-				count_syn_dict[ip].remove(timeList[i])
-		
+			if (time_diff[0] > 0) or (time_diff[1] > 60) :
+				#count_syn_dict[ip].remove(timeList[i])
+				list_to_remove.append(timeList[i])
+
+		for obj in list_to_remove:
+			count_syn_dict[ip].remove(obj)
+
 
 
 def main():

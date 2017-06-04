@@ -1,0 +1,2 @@
+The attacker can send packet with src ip that is not his ip, and can cause blocking ip that is not his.
+In addition, the attacker can send packets from ip address that is not his ip (and can send from a lot of addresses) and if ip address blocked, he will chose other addresses.
